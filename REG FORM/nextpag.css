@@ -1,0 +1,59 @@
+body {
+  background-color: white;
+}
+
+
+
+
+
+
+  #hash {
+    
+    background-color: peachpuff; 
+    color: black;
+    text-align: center;
+    padding: 50px 50px;
+    height: 80px;
+    width: 30%;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .img-container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  #next{
+    color: black;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: black;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: peachpuff;
+  }
+  tr:nth-child(odd) {
+    background-color: white;
+  }
+  
+  /* #ifr {
+    height: auto;
+    width: 50%;
+    text-align: center;
+  }
+   */
