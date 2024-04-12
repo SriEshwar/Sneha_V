@@ -1,0 +1,254 @@
+create database programmer;
+use programmer;
+
+create table programmer.programmers (
+name varchar(100) not null,
+dob date not null,
+doj date not null,
+sex varchar(1),
+prof1 varchar(20),
+prof2 varchar(20),
+salary integer not null
+);
+
+insert into programmer.programmers (name,dob,doj,sex,prof1,prof2,salary) values
+('sneha', '2002-11-02', '2015-03-20', 'f', 'Java', 'Python', 60000),
+('ram', '2002-03-02', '2012-09-10', 'm', 'Cobol', 'Js', 70000),
+('Michael', '1992-11-12', '2018-07-05', 'M', 'Python', 'Java', 80000),
+('lamya', '1995-03-25', '2016-11-30', 'F', 'Js', 'C', 75000),
+('venu', '1985-09-08', '2010-04-15', 'M', 'Cobol', 'Python', 90000),
+('Sarah', '1991-01-18', '2017-05-25', 'F', 'Java', 'pascal', 85000),
+('sri', '1987-12-02', '2013-08-12', 'f', 'Python', 'C++', 70000),
+('Jessica', '1994-04-10', '2015-09-20', 'F', 'clipper', 'Java', 80000),
+('Robert', '1989-01-28', '2011-12-05', 'M', 'pascal', 'Python', 95000),
+('Lisa', '1993-08-14', '2018-03-10', 'F', 'Java', 'C#', 85000);
+
+select * from programmer.programmers;
+
+/*Display the names and ages of all programmers.*/
+Select name,timestampdiff(year, dob, curdate()) as age
+from  programmer.programmers;
+
+/*Display the names and date of birth of all the programmer born in JANUARY.*/
+select name,dob from programmer.programmers where month(dob)=1;
+
+/*Display the details of programmers knowing java*/
+select name as c_programmers from programmer.programmers where 
+prof1 = 'java' or prof2 = 'java';
+
+/* How many programmers know either Cobol or Pascal?*/
+select count(*) as count from programmer.programmers 
+where prof1 in ('cobol','pascal') or prof2 in ('cobol','pascal');
+
+/*How many programmers don't know Pascal & C*/
+select count(*) from programmer.programmers where prof1 not in 
+('pascal','c') or prof2 not in ('pascal','c');
+
+/*How old is the oldest male programmers*/
+select max(timestampdiff(year, dob, curdate())) as oldest_male_programmerr 
+from programmer.programmers where sex ='m';
+
+/*What is the average age of female programmers*/
+select avg(timestampdiff(year,dob,curdate())) as avgage_female_prgrmr
+from programmer.programmers where sex='f';
+
+SELECT AVG(EXTRACT(YEAR FROM curdate()) - EXTRACT(YEAR FROM dob)) AS average_female_age
+FROM programmer.programmers
+WHERE sex = 'F';
+
+/*Calculate the experience in years for each programmers and display along with the names in
+descending order*/
+
+
+/*Who are the programmers who celebrate their birthday during the current month*/
+select name,dob from programmer.programmers where 
+extract(month from dob) = extract(month from curdate());
+
+/* How many female programmers are there?*/
+select count(*) as female_count from programmer.programmers where sex = 'f';
+
+/*What are the languages known by the male programmers?*/
+select distinct prof1 as language from programmer.programmers where sex = 'm'
+union 
+select distinct prof2 as language from programmer.programmers where sex = 'm';
+
+/*What is the Average salary*/
+select avg(salary) as avg_salary from programmer.programmers;
+
+/*Display the details of those who don't know Clipper, Cobol or Pascal?*/
+select * from programmer.programmers where prof1 not in ('clipper','cobol','pascal')
+and prof2 not in ('clipper','cobol','pascal');
+
+/*How many Female programmers knowing C are above 24 years of age*/
+select name as c_f_programmer_above24 from programmer.programmers
+where (prof1='c' or prof2='c') and sex='f' and timestampdiff(year,dob,curdate())>24;
+
+/* Who are the programmers who will be celebrating their Birthday within a week?*/
+select name,dob from programmer.programmers where dob 
+between curdate() and curdate()+7;
+
+/*Display the details of those with less than a year's experience*/
+insert into programmer.programmers (name,dob,doj,sex,prof1,prof2,salary) values
+('harish', '2023-01-01', '2015-03-20', 'f', 'Java', 'Python', 60000);
+select name, doj from programmer.programmers where timestampdiff(year,doj,curdate())<1;
+
+/*Display the details of those who will be completing 2 years of service this year*/
+
+/*Display the names of the programmers whose names contain 2 occurrences of the letter A?*/
+select name from programmer.programmers where length(name)-length(replace(name,'a',''))=2;
+
+/*Display the names of programmers whose names contain unto 5 characters*/
+select name from programmer.programmers where length(name)=5;
+
+/*How many female programmers knowing COBOL have more than 2 years experience*/
+insert into programmer.programmers (name,dob,doj,sex,prof1,prof2,salary) values
+('lisa', '2002-11-02', '2015-03-20', 'f', 'cobol', 'Python', 60000);
+select name from programmer.programmers where sex = 'f' and (prof1 = 'cobol' or prof2 = 'cobol') 
+and doj <= date_sub(curdate(), interval 2 year);
+
+/* Display the name, sex, dob (DD/MM/YY format), doj for all the programmers without using 
+conversion function? */
+select name,sex,date_format(dob,'%d/%m/%y') as dob,date_format(doj,'%d/%m/%y') as date_formt from programmers;
+
+/* Who are the programmers who were born on the last day of the month?*/
+select name from programmers where day(dob)=day(last_day(dob));
+
+/* What is the amount paid in salaries of the male programmers who do not know Cobol? */
+select sum(salary) as amount_paid from programmers where sex='m' and (prof1!="cobol" and prof2!="cobol");
+
+/*Display the name, dob, doj of those month of birth and month of joining are same? */
+select name,dob,doj from programmers where month(dob)=month(doj);
+
+create database software;
+use software;
+
+create table software.softwares (
+name varchar(20) not null,
+title varchar(20) not null,
+dev_in varchar (20) not null,
+scost integer,
+dcost integer,
+sold integer
+);
+
+insert into software.softwares (dev_in, title, name, scost, dcost, sold) VALUES
+('pascal', 'Title1', 'sneha', 1000, 500, 20),
+('dbase', 'Title2', 'ram', 1200, 600, 15),
+('pascal', 'Title3', 'ramesh', 9000, 450, 25),
+('dbase', 'Title4', 'suresh', 1100, 550, 18),
+('basic', 'Title5', 'ali', 1300, 650, 12),
+('js', 'Title6', 'suni', 9500, 480, 30),
+('js', 'Title7', 'jaya', 1050, 520, 22),
+('pascal', 'Title8', 'hari', 1250, 620, 17),
+('dbase', 'Title9', 'kani', 8500, 420, 28),
+('basic', 'Title10', 'aadhi', 1150, 570, 0);
+
+/*Find out the SELLING COST AVERAGE for the packages developed in PASCAL*/
+select avg(scost) as selling_cost_average from software.softwares
+where dev_in = 'pascal';
+
+/*What is the highest numbers of copies sold by a package*/
+select max(sold) as max_sold from software.softwares;
+
+/*How much revenue has been earned through sales of packages in C*/
+select sum(scost * sold) as revenue_earned from software.softwares
+where dev_in = 'c';
+
+/*Display the details of software developed by Ramesh*/
+select * from software.softwares where name = 'ramesh';
+
+/*Display the details of PACKAGES whose sales crossed the 20000 mark*/
+select * from  software.softwares where sold * scost >20000;
+
+/*What is the price of the costliest software developed in BASIC?*/
+select max(scost) as costliest_software from software.softwares 
+where dev_in = 'basic';
+
+/*Display the details of packages for which development cost has been recovered.*/
+select * from software.softwares where sold * scost >= dcost;
+
+/*How many packages were developed in dbase*/
+select count(*) from software.softwares where dev_in = 'dbase';
+
+/* Calculate the amount to be recovered for those packages whose development cost has not been
+recovered*/
+select name, title, scost - dcost as amount_to_recover from software.softwares
+where scost - dcost > 0;
+
+/*) List the packages which have not been sold so far*/
+select title as not_sold from software.softwares where sold=0;
+
+/*Find out the cost of the software developed by Mary*/
+insert into software.softwares (dev_in, title, name, scost, dcost, sold) value
+('basic', 'Title10', 'mary', 1150, 570, 23);
+select scost as scost_of_mary, dcost as dcost_of_mary 
+from software.softwares where name = 'mary';
+
+create database study;
+use study;
+
+create table study.studies (
+name varchar(20) not null,
+splace varchar(20) not null,
+course varchar(50) not null,
+ccost varchar(50) not null
+);
+
+INSERT INTO study.studies (name, splace, course, ccost) VALUES
+('Somdutt', 'Sabhari', 'PGDCA', '4500'),
+('Devdutt', 'BDPS', 'DCS', '5000'),
+('sneha', 'pragathi', 'PGDCA', '4500'),
+('ram', 'pragathi', 'PGDCA', '4500'),
+('saranya', 'sece', 'DCS', '5000'),
+('vins', 'sece', 'DCS', '5000'),
+('abi', 'sabahri', 'JAVA', '3000'),
+('sri', 'sabahri', 'JAVA', '3000'),
+('venu', 'pragathi', 'JS', '3000'),
+('hari', 'subahri', 'JS', '3000');
+
+/* Display the names and ages of all the programmers who have undergone training in DCS course*/
+select name as DCS_trainee from study.studies where course = 'DCS';
+
+/*Display lowest course fee*/
+select min(ccost) as lowest_cfee from study.studies; 
+
+/*How many programmer has done PGDCA course*/
+select name from study.studies where course = 'PGDCA';
+
+/* How many programmers studied at SABHARI*/
+select count(*) as sabahri_count from study.studies where splace='sabhari'; 
+
+/*How many programmers studies at paragathi*/
+select count(*) from study.studies where splace = 'pragathi';
+
+/*How many programmers paid 5000 to 10000 for their course*/
+select count(*) from study.studies where ccost between 5000 and 10000;
+
+/*What is the average course fee?*/
+select avg(ccost) as avg from study.studies;
+
+/*Display the institute’s names from the studies table without duplicates*/
+select distinct splace as institute_names from study.studies;
+
+/*How many different courses are mentioned in the studies table*/
+select distinct course from study.studies;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
