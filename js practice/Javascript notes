@@ -423,3 +423,132 @@ getElementsByClassName()	returns all the elements having the given class name.
 Enter Name:<input type="text" name="name"/>  
 <input type="button" onclick="printvalue()" value="print name"/>  
 </form>  */
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------- JAVASCRIPT ----------------------------------------------
+What is javascript?
+* Most popular programming language
+* used to create interactive and dynamic web page
+*/
+
+/*------------------------------------------------- Variables ---------------------------------------------------------------
+Decalaration of variables:
+// var
+function scope or Global scope
+{var a=10}
+console.log(a) o/p=10
+redeclaration possible
+var a=10
+a=20
+console.log(a) o/p=20
+// let
+Local scope, used in private places
+{let a=10}
+console.log(a) o/p=error , a undefined
+redeclaration possible
+let a=10
+a=20
+console.log(a) o/p=20
+// const
+will be constant
+const a=10
+a=20
+console.log(a) o/p=error
+eg = > const weekdays=7
+*/
+
+/*------------------------------------------- KEYWORDS -----------------------------------
+predefined
+*  var - declares a variable
+*  let - decalres a block variable
+*  const - constant variable
+*  switch
+*  for
+*  function
+*  return 
+*  try - used in error handling
+*/
+
+//---------------------------------------COMMANDS----------------------------------------------
+// single line command --> //
+//  multiline command --> /* */
+
+/*------------------------------------------ OPERATORS ----------------------------------------
+     1.ARITHMETIC OPERATOR  --> (+ , - , * , /(returns exact decimal) , % , **(exponential))
+     2.COMPARISON OPERATOR --> (< , > ,<= , >= , ===(equality operator) , !==) returns boolean.
+     we can also compare strings using comparator operator.
+     3.LOGICAL OPERATOR
+     4.ASSIGNMENT OPEARATOR --> (= , += , -= , *= , /=)
+     5.BITWISE OPERATOR
+     6.INCREMENT/DECREMENT --> (++ ,--)
+     7.TERNARY OPERATOR -->(CONDITION?TRUE:FALSE)
+
+/*-------------------------------------------- DATA TYPES -------------------------------------
+typeof() -> returns the data type
+PRIMITIVE                                            NON PRIMTIVE 
+1. Number                                             1. object
+2. string                                             2. array
+3. boolean
+4. null
+5. undefined
+
+/*---------------------------------------- FUNCTIONS ----------------------------------------
+syntax:
+function function_name() {}
+eg : function demo() {
+   console.log("function is working") 
+}
+demo() //function calling
+
+/*--------------------------------------- CONDITIONAL STATEMNTS ---------------------------
+IF ELSE
+syntax:
+if(true)
+{
+//stmnt
+}
+else
+{
+//stmnt
+}
+*/
+
+/*------------------------------------------ LOGICAL OPERATOR -----------------------------------
+1. LOGICAL AND ( && ) One false, everything false
+2. LOGICAL OR ( || ) One true, evrything true
+
+/*--------------------------------------- LOOPS --------------------------------------------
+1. FOR LOOP
+syntax:
+for(initialization;condition;iteration)
+{
+//code
+}
+
+/*---------------------------------- DOM -----------------------
+* DOM - document object model
+* It is an interface for web document
+* represents their structure as tree-like objects
+* allows dynamic manipulation of page content
+
+// What is dom manipulation?
+* process of programatically modifying the content, structure, or style of a web page
+
+// What is event and event handlers?
+* event - action or occurence that happens within a webpage eg:clicking button
+* event handler - function that responds to ana event when it occurs.
+
+
+
+
+
+
