@@ -233,6 +233,40 @@ select distinct splace as institute_names from study.studies;
 /*How many different courses are mentioned in the studies table*/
 select distinct course from study.studies;
 
+/*How many programmers paid 5000 to 10000 for their course?*/
+select count(*) as programmers_paid_5k_to_10k from studies where ccost between 5000 and 10000;
+
+/* What is the average course fee?*/
+select avg(ccost) from studies;
+
+/* Display the institute’s place from the studies table without duplicates?*/
+select splace from studies group by splace;
+
+/* Display THE NUMBER OF people who studied in EACH institute place.*/
+select splace,count(*) from studies group by splace;
+
+/* Display THE NUMBER OF people who studied in EACH course.*/
+select course,count(*) from studies group by course;
+
+/*Which instituteplace has MOST NUMBER of students?*/
+select splace,count(*) from studies group by splace order by count(*) desc limit 1;
+
+/*Which course has been done by MOST of the students?*/
+select course,count(*) as num_students from studies group by course order by count(*) desc limit 1;
+
+/*Display name of the institute place and course Which has below AVERAGE course fee?*/
+select splace,course from studies where ccost < (select avg(ccost) from studies);
+
+/* Which institute place conducts COSTLIEST course?*/
+select splace,max(ccost) as costliest_course from studies group by splace order by costliest_course desc limit 1; 
+
+/* Which course has below AVERAGE number of students?*/
+select course from studies
+group by course having count(*) < (select avg(student_count) from (select count(*) as student_count from studies group by course) as avg_students);
+
+/*Display names of the course WHOSE fees are within 1000(+ or -) of the AVERAGE fee.*/
+select distinct course from studies
+where ccost between (select avg(ccost) - 1000 from studies) and (select avg(ccost) + 1000 from studies);
 
 
 
