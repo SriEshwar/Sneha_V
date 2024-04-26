@@ -547,6 +547,20 @@ for(initialization;condition;iteration)
 * event - action or occurence that happens within a webpage eg:clicking button
 * event handler - function that responds to ana event when it occurs.
 
+// Math.random
+Math.random() - return number between 0.0 ......... 0.9
+eg: 
+var a=Math.random()
+console.log(a)
+o/p: 0.33948191350874835 - 1st run
+     0.29363219584377753 - 2nd run
+
+// Math.floor
+return the whole number to its lowest
+eg: 9.766 - 9, 8.56 - 8, 4.5 - 4
+
+// CSS MANIPULATION
+
 
 
 
