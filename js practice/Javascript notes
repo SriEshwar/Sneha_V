@@ -540,12 +540,22 @@ for(initialization;condition;iteration)
 * represents their structure as tree-like objects
 * allows dynamic manipulation of page content
 
+// document objects
+write("string")	writes the given string on the doucment.
+writeln("string")	writes the given string on the doucment with newline character at the end.
+getElementById()	returns the element having the given id value.
+getElementsByName()	returns all the elements having the given name value.
+getElementsByTagName()	returns all the elements having the given tag name.
+getElementsByClassName()	returns all the elements having the given class name.
+
 // What is dom manipulation?
 * process of programatically modifying the content, structure, or style of a web page
 
 // What is event and event handlers?
 * event - action or occurence that happens within a webpage eg:clicking button
 * event handler - function that responds to ana event when it occurs.
+
+//------------------------------ Random functions------------------------
 
 // Math.random
 Math.random() - return number between 0.0 ......... 0.9
@@ -561,6 +571,16 @@ eg: 9.766 - 9, 8.56 - 8, 4.5 - 4
 
 // CSS MANIPULATION
 
+* To change attribute
+ box.style.backgroundColor="peachpuff"
+*To add class
+box.setAttribute("class","widthmax")
+
+eg:
+function changeColor(){
+           box.style.backgroundColor="peachpuff"
+           box.setAttribute("class","widthmax")
+        }
 
 
 
