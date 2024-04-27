@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="paragraph">hello</p>
+    <h1 id="h1">hello world</h1>
+    <!-- DOM -->
+    <script>
+        var para = document.getElementById("paragraph")
+        console.log(para) //output: <p id="one">hello</p>
+        console.log(para.textContent) //output: hello
+        para.textContent = "bye" //dom manipulation
+        var h1 = document.getElementById("h1")
+        h1.textContent = "Bye world"
+    </script>
+</body>
+</html>
