@@ -1,0 +1,18 @@
+------------------------------------------------ NODE JS ------------------------------------------------------------
+
+* Open source, cross platform, javascript run time environment
+* javascript backend process are done using node JS
+
+---------------------------------------------- JS vs NOD ------------------------------------------------------------
+
+                   js                                                             node
+    js - vennila(base version) o/p-browser                              node - o/p - terminal
+    ES6 modules - import                                                not available
+
+----------------------------------------------------------------------------------------------------------------------
+
+types of modules:
+
+1. OS Operating system
+
+    
