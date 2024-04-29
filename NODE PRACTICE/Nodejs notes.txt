@@ -1,0 +1,49 @@
+------------------------------------------------ NODE JS ------------------------------------------------------------
+
+* Open source, cross platform, javascript run time environment
+* javascript backend process are done using node JS
+
+---------------------------------------------- JS vs NOD ------------------------------------------------------------
+
+                   js                                                             node
+    js - vennila(base version) o/p-browser                              node - o/p - terminal
+    ES6 modules - import                                                not available
+
+----------------------------------------------------------------------------------------------------------------------
+
+core modules
+
+1. fs -file(read, write)
+2. https - create server
+3. https - create secure server
+4. path 
+5. os
+
+-----------------------------------------------------------------------------------------------------------------------
+
+HTTP:
+
+create server
+
+to give request to our server
+open browser -> localhost:portno
+// localhost - it is a domain name inside our process
+            - ip address : 127.0.0.1
+// req,res
+
+
+//status code
+200 - success
+302 - redirect
+404 - error 
+
+//stream - 
+server send req - it will give data - process of reading or writing the data is stream
+big data req - read your data in part wise(part1, part2, part3,..)
+
+//single thread
+your code - single thread - event loop(small data will be sent directly) else sent to worker pool
+            /     |     \
+            req    req   req
+
+event loop - timers, pending callbacks, poll, check
