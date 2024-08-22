@@ -1,0 +1,52 @@
+//--------------------------------------------------------- MONGODB -----------------------------------------------------------------------------
+//Basics of MongoDB
+
+//--------------------------------------------------------- Introduction to MongoDB ------------------------------------------------------------
+/*
+•	MongoDB is a NoSQL, document-oriented database designed for scalability and flexibility.
+•	Data is stored in JSON-like documents with dynamic schemas.
+•	It is an open-source database developed by MongoDB Inc.
+*/
+
+  
+//---------------------------------------------------------- Key Concepts ----------------------------------------------------------------------
+/*
+•	Database: A physical container for collections, similar to a database in RDBMS.
+•	Collection: A group of MongoDB documents, akin to a table in relational databases.
+•	Document: A record in a collection, composed of field-value pairs, offering more flexibility due to the absence of a fixed schema.
+•	Field: A key-value pair in a document, equivalent to a column in RDBMS.
+*/
+
+  
+//------------------------------------------------------------ Advantages of MongoDB ------------------------------------------------------------
+/*
+•	Schema Flexibility: Documents can have different fields, making it easy to store data with varying structures.
+•	Scalability: Supports horizontal scaling through sharding, enabling the handling of large datasets and high-throughput applications.
+•	High Performance: Optimized for read and write operations, especially with large volumes of data.
+•	Indexing: Supports indexing on any field to improve query performance.
+*/
+
+  
+//------------------------------------------------------------- Basic CRUD Operations ---------------------------------------------------------
+/*
+•	Create: Insert new documents into a collection using insertOne() or insertMany().
+•	Read: Retrieve documents from a collection using find(), which can include queries to filter results.
+•	Update: Modify existing documents using updateOne(), updateMany(), or replaceOne().
+•	Delete: Remove documents from a collection using deleteOne() or deleteMany().
+*/
+
+  
+//------------------------------------------------------------- Querying in MongoDB -------------------------------------------------------------
+/*
+•	Basic Queries: Use the find() method with a query object to filter documents (e.g., { "name": "John" }).
+•	Operators: MongoDB supports various operators for complex queries (e.g., $gt, $lt, $in, $or).
+•	Aggregation: Use the aggregate() method for data processing and transformation, similar to SQL GROUP BY operations.*/
+
+
+//------------------------------------------------------------- Indexing ---------------------------------------------------------------------
+/*
+•	Single Field Index: Created on a single field in a document.
+•	Compound Index: Created on multiple fields within a document.
+•	Text Indexes: Allow text searches on string content.
+•	Indexes can improve query performance but may require careful management to balance speed and storage.
+*/
